@@ -13,7 +13,7 @@ For a directory structure like:
     └── styles.css
 ```
 
-`directory-loader!./abc` generates code like:
+`directory-loader!./abc/` generates code like:
 
 ```js
 import * as foo from './abc/foo.js';
@@ -31,8 +31,9 @@ If you're using vanilla Webpack, this loader has little advantage over the [buil
 ## Usage
 
 ```js
-import modules from 'directory-loader!./path/to/directory';
+// trailing slash is important so Webpack resolves the correct context
+import modules from 'directory-loader!./path/to/directory/';
 
 // use the `match` option to import other file types with regex (defaults to `/\.js$/i`)
-import images from 'directory-loader?match=\\.png$!./path/to/images';
+import images from 'directory-loader?match=\\.png$!./path/to/images/';
 ```

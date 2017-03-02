@@ -1,0 +1,31 @@
+{
+  "name": "directory-loader",
+  "version": "0.0.1",
+  "description": "Webpack loader to import all files in a directory.",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erikdesjardins/directory-loader.git"
+  },
+  "keywords": [
+    "webpack"
+  ],
+  "author": "Erik Desjardins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erikdesjardins/directory-loader/issues"
+  },
+  "homepage": "https://github.com/erikdesjardins/directory-loader#readme",
+  "peerDependencies": {
+    "webpack": ">=2.2.0"
+  },
+  "dependencies": {
+    "loader-utils": "^1.0.2"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2"
+  }
+}

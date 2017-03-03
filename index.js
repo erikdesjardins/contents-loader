@@ -34,10 +34,10 @@ module.exports.pitch = function(request) {
 			.filter(function(filename) {
 				return match.test(filename);
 			})
-			.map(function(filename) {
+			.map(function(filename, i) {
 				return {
 					name: filename,
-					id: filename.split('.')[0]
+					id: '_' + i
 				};
 			});
 
@@ -49,9 +49,9 @@ module.exports.pitch = function(request) {
 			})
 			.join('\n');
 
-		var exportStatement = 'export { ' + matchingFiles
+		var exportStatement = 'export default { ' + matchingFiles
 			.map(function(info) {
-				return info.id;
+				return JSON.stringify(info.name) + ": " + info.id;
 			})
 			.join(', ') + ' };';
 

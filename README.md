@@ -16,10 +16,10 @@ For a directory structure like:
 `contents-loader!./abc/` generates code like:
 
 ```js
-import * as foo from './abc/foo.js';
-import * as bar from './abc/bar.js';
-import * as baz from './abc/baz.js';
-export { foo, bar, baz };
+import * as _0 from "./abc/foo.js";
+import * as _1 from "./abc/bar.js";
+import * as _2 from "./abc/baz.js";
+export default { "foo.js": _0, "bar.js": _1, "baz.js": _2 };
 ```
 
 If you're using vanilla Webpack, this loader has little advantage over the [built-in](https://webpack.js.org/guides/dependency-management/#require-context) `require.context('./abc', false, /\.js$/)`. If, however, you're using [`webpack-rollup-loader`](https://github.com/erikdesjardins/webpack-rollup-loader) or similar, `require.context` will only be processed by Webpack, resulting in suboptimal code generation.

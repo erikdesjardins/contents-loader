@@ -41,10 +41,10 @@ test('default behaviour', async t => {
 		await runLoader('./src/'),
 		`
 ${header}
-import * as a from "./src/a.js";
-import * as b from "./src/b.js";
-import * as c from "./src/c.js";
-export { a, b, c };
+import * as _0 from "./src/a.js";
+import * as _1 from "./src/b.js";
+import * as _2 from "./src/c.js";
+export default { "a.js": _0, "b.js": _1, "c.js": _2 };
 		`.trim()
 	);
 });
@@ -54,8 +54,8 @@ test('match option - string', async t => {
 		await runLoader('./src/', '?match=\\.txt$'),
 		`
 ${header}
-import * as test from "./src/test.txt";
-export { test };
+import * as _0 from "./src/test.txt";
+export default { "test.txt": _0 };
 		`.trim()
 	);
 });
@@ -65,10 +65,10 @@ test('match option - regex', async t => {
 		await runLoader('./src/', { match: /\.(md|markdown)$/ }),
 		`
 ${header}
-import * as bar from "./src/bar.md";
-import * as baz from "./src/baz.markdown";
-import * as foo from "./src/foo.md";
-export { bar, baz, foo };
+import * as _0 from "./src/bar.md";
+import * as _1 from "./src/baz.markdown";
+import * as _2 from "./src/foo.md";
+export default { "bar.md": _0, "baz.markdown": _1, "foo.md": _2 };
 		`.trim()
 	);
 });

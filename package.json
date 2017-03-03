@@ -1,6 +1,6 @@
 {
   "name": "contents-loader",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Webpack loader to import the contents of a directory.",
   "main": "index.js",
   "scripts": {

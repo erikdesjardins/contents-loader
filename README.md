@@ -1,6 +1,6 @@
-# directory-loader [![Build Status](https://travis-ci.org/erikdesjardins/directory-loader.svg?branch=master)](https://travis-ci.org/erikdesjardins/directory-loader)
+# contents-loader [![Build Status](https://travis-ci.org/erikdesjardins/contents-loader.svg?branch=master)](https://travis-ci.org/erikdesjardins/contents-loader)
 
-Webpack loader to import all files in a directory.
+Webpack loader to import the contents of a directory.
 
 For a directory structure like:
 
@@ -13,7 +13,7 @@ For a directory structure like:
     └── styles.css
 ```
 
-`directory-loader!./abc/` generates code like:
+`contents-loader!./abc/` generates code like:
 
 ```js
 import * as foo from './abc/foo.js';
@@ -26,14 +26,14 @@ If you're using vanilla Webpack, this loader has little advantage over the [buil
 
 ## Installation
 
-`npm install --save-dev directory-loader`
+`npm install --save-dev contents-loader`
 
 ## Usage
 
 ```js
 // trailing slash is important so Webpack resolves the correct context
-import modules from 'directory-loader!./path/to/directory/';
+import modules from 'contents-loader!./path/to/directory/';
 
 // use the `match` option to import other file types with regex (defaults to `/\.js$/i`)
-import images from 'directory-loader?match=\\.png$!./path/to/images/';
+import images from 'contents-loader?match=\\.png$!./path/to/images/';
 ```

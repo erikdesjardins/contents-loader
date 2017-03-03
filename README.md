@@ -31,9 +31,10 @@ If you're using vanilla Webpack, this loader has little advantage over the [buil
 ## Usage
 
 ```js
-// trailing slash is important so Webpack resolves the correct context
+// trailing slash is important
 import modules from 'contents-loader!./path/to/directory/';
 
-// use the `match` option to import other file types with regex (defaults to `/\.js$/i`)
+// use the `match` option to specify which files to import
+// (defaults to `/\.js$/i`)
 import images from 'contents-loader?match=\\.png$!./path/to/images/';
 ```

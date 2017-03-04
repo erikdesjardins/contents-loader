@@ -11,23 +11,20 @@ var loaderUtils = require('loader-utils');
 
 module.exports = function() {};
 
-module.exports.pitch = function(request) {
-	if (!request.endsWith('/')) {
-		throw new Error(
-			'contents-loader: request "' + request + '" must have a trailing slash. ' +
-			'Try "' + request + '/" instead.'
-		);
-	}
+// https://github.com/webpack/webpack/blob/5abfeea64bcfe4f60f1c79eb1ba95686dc857faa/lib/NormalModuleFactory.js#L118
+// for using `pitching-loader?query!` (no resource)
 
+module.exports.pitch = function() {
 	var callback = this.async();
 
 	var options = Object.assign({ match: /\.js$/i }, loaderUtils.getOptions(this));
 	var match = typeof options.match === 'string' ? new RegExp(options.match, 'i') : options.match;
+	var context = path.join(this.context || this._module.issuer.context, options.path);
 
 	// add context dependency so new files are picked up
-	this.addContextDependency(request);
+	this.addContextDependency(context);
 
-	fs.readdir(this.context, function(err, files) {
+	fs.readdir(context, function(err, files) {
 		if (err) return callback(err);
 
 		var matchingFiles = files
@@ -45,7 +42,7 @@ module.exports.pitch = function(request) {
 
 		var importStatements = matchingFiles
 			.map(function(info) {
-				return 'import * as ' + info.id + ' from ' + JSON.stringify('.' + path.join('/', request, info.name)) + ';';
+				return 'import * as ' + info.id + ' from ' + JSON.stringify(path.join(context, info.name)) + ';';
 			})
 			.join('\n');
 

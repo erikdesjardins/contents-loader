@@ -13,7 +13,7 @@ For a directory structure like:
     └── styles.css
 ```
 
-`contents-loader!./abc/` generates code like:
+contents-loader?path=./abc/!` generates code like:
 
 ```js
 import * as _0 from "./abc/foo.js";
@@ -31,10 +31,10 @@ If you're using vanilla Webpack, this loader has little advantage over the [buil
 ## Usage
 
 ```js
-// trailing slash is important
-import modules from 'contents-loader!./path/to/directory/';
+// trailing `!` is important
+import modules from 'contents-loader?path=./path/to/directory!';
 
 // use the `match` option to specify which files to import
 // (defaults to `/\.js$/i`)
-import images from 'contents-loader?match=\\.png$!./path/to/images/';
+import images from 'contents-loader?path=./path/to/images&match=\\.png$!';
 ```

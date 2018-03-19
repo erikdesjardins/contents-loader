@@ -1,5 +1,7 @@
 # contents-loader [![Build Status](https://travis-ci.org/erikdesjardins/contents-loader.svg?branch=master)](https://travis-ci.org/erikdesjardins/contents-loader)
 
+# ⚠ doesn't work ⚠
+
 Webpack loader to import the contents of a directory.
 
 For a directory structure like:

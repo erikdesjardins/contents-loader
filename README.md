@@ -1,4 +1,4 @@
-# contents-loader [![Build Status](https://travis-ci.org/erikdesjardins/contents-loader.svg?branch=master)](https://travis-ci.org/erikdesjardins/contents-loader)
+# contents-loader
 
 # ⚠ doesn't work ⚠
 
